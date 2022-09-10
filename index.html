@@ -4,11 +4,87 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="./pages/index.css">
+    <title>Mesto</title>
 </head>
-<body>
-    <header></header>
-    <main></main>
-    <footer></footer>
+<body class="page">
+    <div class="page__content">
+        <header class="header header__container">
+            <img class="header__logo" src="./images/logo.png">
+        </header>
+        <main>
+            <section class="profile">
+                <div class="profile__avatar"></div>
+                <div class="profile__info">
+                    <div class="profile__container">
+                        <h1 class="profile__name">Жак-Ив Кусто</h1>
+                        <button type="button" aria-label="Кнопка редактирования" class="profile__edit-button"></button>
+                    </div>
+                    <p class="profile__job">Исследователь океана</p>
+                </div>
+                <button type="button" aria-label="Кнопка добавления" class="profile__add-button"></button>
+            </section>
+            <section class="places">
+                <ul class="cards">
+                    <li class="card">
+                        <img alt="#" src="./images/karachaevsk.png" class="card__image">
+                        <div class="card__info">
+                            <h2 class="card__title">Карачаевск</h2>
+                            <button class="card__like" type="button" aria-label="Кнопка нравится/не нравится"></button>
+                        </div> 
+                    </li>
+                    <li class="card">
+                        <img alt="#" src="./images/elbrus.png" class="card__image">
+                        <div class="card__info">
+                            <h2 class="card__title">Гора Эльбрус</h2>
+                            <button class="card__like" type="button" aria-label="Кнопка нравится/не нравится"></button>
+                        </div> 
+                    </li>
+                    <li class="card">
+                        <img alt="#" src="./images/dombay.png" class="card__image">
+                        <div class="card__info">
+                            <h2 class="card__title">Домбай</h2>
+                            <button class="card__like" type="button" aria-label="Кнопка нравится/не нравится"></button>
+                        </div>    
+                    </li>
+                    <li class="card">
+                        <img alt="#" src="./images/elbrus.png" class="card__image">
+                        <div class="card__info">
+                            <h2 class="card__title">Гора Эльбрус</h2>
+                            <button class="card__like" type="button" aria-label="Кнопка нравится/не нравится"></button>
+                        </div> 
+                    </li>
+                    <li class="card">
+                        <img alt="#" src="./images/dombay.png" class="card__image">
+                        <div class="card__info">
+                            <h2 class="card__title">Домбай</h2>
+                            <button class="card__like" type="button" aria-label="Кнопка нравится/не нравится"></button>
+                        </div> 
+                    </li>
+                    <li class="card">
+                        <img alt="#" src="./images/karachaevsk.png" class="card__image">
+                        <div class="card__info">
+                            <h2 class="card__title">Карачаево-Черкессия</h2>
+                            <button class="card__like" type="button" aria-label="Кнопка нравится/не нравится"></button>
+                        </div> 
+                    </li>
+                </ul>
+            </section>
+        </main>
+        <footer class="footer">
+            <p class="footer__copyright">&copy; 2022 Mesto Russia</p>
+        </footer>
+    </div>
+    <div class="popup popup__opened">
+        <div class="popup__container">
+            <button class="popup__close" type="button" aria-label="close"></button>
+            <form class="popup__edit-form">
+                <h3 class="popup__title">Редактировать профиль</h3>
+                <input type="text" class="popup__input popup__input_type_name" name="popupName" value="Жак-Ив Кусто">
+                <input type="text" class="popup__input popup__input_type_job" name="popupJob" value="Исследователь океана">
+                <button class="popup__save-button" type="submit">Сохранить</button>
+            </form>
+        </div>
+    </div>
 </body>
 </html>
