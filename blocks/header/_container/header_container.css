@@ -1,10 +1,10 @@
-.header__container {
+.header_container {
     margin: 45px auto 0;
     border-bottom: 1px solid rgba(84, 84, 84, 1);
 }
 
 @media screen and (max-width: 767px) {
-    .header__container {
+    .header_container {
         margin: 28px auto 0;
     }
 }
