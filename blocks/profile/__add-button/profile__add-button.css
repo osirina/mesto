@@ -9,6 +9,7 @@
     align-self: center;
     justify-self: flex-end;
     grid-area: add-button;
+    cursor: pointer;
 }
 
 .profile__add-button:hover {
