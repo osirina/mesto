@@ -9,8 +9,8 @@
 </head>
 <body class="page">
     <div class="page__content">
-        <header class="header header_container">
-            <img class="header__logo" src="./images/logo.png" alt="Логотип: Место Россия">
+        <header class="header page__header">
+            <img class="header__logo" src="./images/logo.svg" alt="Логотип: Место Россия">
         </header>
         <main class="content">
             <section class="profile">
@@ -24,8 +24,8 @@
                 </div>
                 <button type="button" aria-label="Кнопка добавления" class="profile__add-button"></button>
             </section>
-            <section class="places">
-                <ul class="cards">
+            <section class="cards">
+                <ul class="cards__list">
                     <li class="card">
                         <img alt="Карачаевск - старинное здание" src="./images/karachaevsk.png" class="card__image">
                         <div class="card__info">
@@ -78,7 +78,7 @@
     <div class="popup">
         <div class="popup__container">
             <button class="popup__close-button" type="button" aria-label="Закрыть"></button>
-            <form class="popup__edit-form">
+            <form class="popup__edit-form" name="profile-edit-form">
                 <h3 class="popup__title">Редактировать профиль</h3>
                 <input type="text" class="popup__input popup__input_type_name" name="popupName" value="Жак-Ив Кусто">
                 <input type="text" class="popup__input popup__input_type_job" name="popupJob" value="Исследователь океана">

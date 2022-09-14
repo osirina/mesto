@@ -17,5 +17,5 @@
 }
 
 .card__like:active {
-    background-image: url(../../../images/like-black.png);
+    background-image: url(../../../images/like-active.svg);
 }

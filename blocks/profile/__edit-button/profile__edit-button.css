@@ -4,8 +4,8 @@
     border: 1px solid #ffffff;
     align-self: center;
     margin-left: 18px;
-    background-color: black;
-    background-image: url(../../../images/edit-button.png);
+    background-color: transparent;
+    background-image: url(../../../images/edit-button.svg);
     background-position: center;
     background-repeat: no-repeat;
     cursor: pointer;
@@ -13,4 +13,11 @@
 
 .profile__edit-button:hover {
     opacity: 0.6;
+}
+
+@media screen and (max-width: 767px) {
+    .profile__edit-button {
+        width: 18px;
+        height: 18px;
+    }
 }
