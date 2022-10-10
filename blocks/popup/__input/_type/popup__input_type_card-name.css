@@ -1,0 +1,12 @@
+.popup__input_type_card-name {
+    padding: 0 0 14px;
+    margin-bottom: 29px;
+}
+
+@media screen and (max-width: 767px) {
+    .popup__input_type_card-name {
+        width: 238px;
+        margin: 0 auto 29px;
+        padding: 0 0 13px;
+    }
+}
