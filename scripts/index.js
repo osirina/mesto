@@ -62,7 +62,7 @@ function formSubmitHandler (evt) {
 formElement.addEventListener('submit', formSubmitHandler); 
 
 // функция создания карточек
-const cards = document.querySelector('.cards'); //контейнер, куда будут рендериться карточки
+const cards = document.querySelector('.cards__list'); //контейнер, куда будут рендериться карточки
 
 const popupImage = document.querySelector('.popup__image');
 const popupSubtitle = document.querySelector('.popup__subtitle');
