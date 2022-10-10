@@ -24,50 +24,8 @@
                 </div>
                 <button type="button" aria-label="Кнопка добавления" class="profile__add-button"></button>
             </section>
-            <section class="cards">
-                <ul class="cards__list">
-                    <li class="card">
-                        <img alt="Карачаевск - старинное здание" src="./images/karachaevsk.png" class="card__image">
-                        <div class="card__info">
-                            <h2 class="card__title">Карачаевск</h2>
-                            <button class="card__like" type="button" aria-label="Кнопка нравится/не нравится"></button>
-                        </div> 
-                    </li>
-                    <li class="card">
-                        <img alt="Гора Эльбрус на закате" src="./images/elbrus.png" class="card__image">
-                        <div class="card__info">
-                            <h2 class="card__title">Гора Эльбрус</h2>
-                            <button class="card__like" type="button" aria-label="Кнопка нравится/не нравится"></button>
-                        </div> 
-                    </li>
-                    <li class="card">
-                        <img alt="Вид на пик Домбай за лесом" src="./images/dombay.png" class="card__image">
-                        <div class="card__info">
-                            <h2 class="card__title">Домбай</h2>
-                            <button class="card__like" type="button" aria-label="Кнопка нравится/не нравится"></button>
-                        </div>    
-                    </li>
-                    <li class="card">
-                        <img alt="Гора Эльбрус на закате" src="./images/elbrus.png" class="card__image">
-                        <div class="card__info">
-                            <h2 class="card__title">Гора Эльбрус</h2>
-                            <button class="card__like" type="button" aria-label="Кнопка нравится/не нравится"></button>
-                        </div> 
-                    </li>
-                    <li class="card">
-                        <img alt="Вид на пик Домбай за лесом" src="./images/dombay.png" class="card__image">
-                        <div class="card__info">
-                            <h2 class="card__title">Домбай</h2>
-                            <button class="card__like" type="button" aria-label="Кнопка нравится/не нравится"></button>
-                        </div> 
-                    </li>
-                    <li class="card">
-                        <img src="./images/karachaevsk.png" class="card__image" alt="Карачаевск - старинное здание">
-                        <div class="card__info">
-                            <h2 class="card__title">Карачаево-Черкессия</h2>
-                            <button class="card__like" type="button" aria-label="Кнопка нравится/не нравится"></button>
-                        </div> 
-                    </li>
+            <section class="places">
+                <ul class="cards">
                 </ul>
             </section>
         </main>
@@ -75,7 +33,8 @@
             <p class="footer__copyright">&copy; 2022 Mesto Russia</p>
         </footer>
     </div>
-    <div class="popup">
+    <!--попап редактирования профиля-->
+    <div class="popup popup_type_edit-profile">
         <div class="popup__container">
             <button class="popup__close-button" type="button" aria-label="Закрыть"></button>
             <form class="popup__edit-form" name="profile-edit-form">
@@ -86,6 +45,39 @@
             </form>
         </div>
     </div>
-    <script src="./scripts/index.js"></script>
+    <!--попап добавления новой карточки-->
+    <div class="popup popup_type_add">
+        <div class="popup__container">
+            <button class="popup__close-button" type="button" aria-label="Закрыть"></button>
+            <form class="popup__add-form">
+                <h3 class="popup__title">Новое место</h3>
+                <input type="text" class="popup__input popup__input_type_card-name" name="popupCardName" placeholder="Название">
+                <input type="text" class="popup__input popup__input_type_card-link" name="popupCardLink" placeholder="Ссылка на картинку">
+                <button class="popup__add-button" type="submit">Создать</button>
+            </form>
+        </div>
+    </div>
+    <!--попап просмотра фотографий-->
+    <div class="popup popup_type_zoom">
+        <div class="popup__image-container">
+            <button class="popup__close-button" type="button" aria-label="Закрыть"></button>
+            <figure class="popup__figure">
+                <img class="popup__image" src="#" alt>
+                <figcaption class="popup__subtitle"></figcaption>
+            </figure>
+        </div>
+<!--темплейт карточек-->
+<template class="card-template">
+    <li class="card">
+        <button class="card__button-delete" type="button" name="delete"></button>
+        <img alt="" src="#" class="card__image">
+        <div class="card__info">
+            <h2 class="card__title"></h2>
+            <button class="card__like" type="button" aria-label="Кнопка нравится/не нравится"></button>
+        </div> 
+    </li>
+</template>
+<script src="./scripts/initial-cards.js"></script>    
+<script src="./scripts/index.js"></script>
 </body>
 </html>
