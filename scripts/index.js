@@ -16,12 +16,19 @@ const closeAddPopupButton = cardAddPopup.querySelector('.popup__close-button');
 const closeZoomPopupButton = photoZoomPopup.querySelector('.popup__close-button');
 
 // переменные для формы редактирования
-let profileName = content.querySelector('.profile__name');
-let profileJob = content.querySelector('.profile__job');
+const profileName = content.querySelector('.profile__name');
+const profileJob = content.querySelector('.profile__job');
 
-let formElement = popup.querySelector('.popup__edit-form');
-let nameInput = popup.querySelector('.popup__input_type_name');
-let jobInput = popup.querySelector('.popup__input_type_job');
+const formProfileEdit = popup.querySelector('.popup__edit-form');
+const nameInput = popup.querySelector('.popup__input_type_name');
+const jobInput = popup.querySelector('.popup__input_type_job');
+
+const popupZoomImage = document.querySelector('.popup__image');
+const popupZoomSubtitle = document.querySelector('.popup__subtitle');
+
+const cardNameInput = document.querySelector('.popup__input_type_card-name');
+const cardLinkInput = document.querySelector('.popup__input_type_card-link');
+const formAddPhoto = document.querySelector('.popup__add-form');
 
 //функция открытия попапов
 const openPopup = function(popup) {
@@ -51,7 +58,7 @@ profileEditButton.addEventListener('click', () => {
 cardAddButton.addEventListener('click', () => {openPopup(cardAddPopup);});
 
 // функция подстановки данных из формы редактирования в профиль
-function formSubmitHandler (evt) {
+function handleProfileFormSubmit (evt) {
     evt.preventDefault(); // отменяем дефолтное событие
     profileName.textContent = nameInput.value;
     profileJob.textContent = jobInput.value;
@@ -59,13 +66,10 @@ function formSubmitHandler (evt) {
 }
 
 // слушатель кнопки сохранения данных в форме
-formElement.addEventListener('submit', formSubmitHandler); 
+formProfileEdit.addEventListener('submit', handleProfileFormSubmit); 
 
 // функция создания карточек
 const cards = document.querySelector('.cards__list'); //контейнер, куда будут рендериться карточки
-
-const popupImage = document.querySelector('.popup__image');
-const popupSubtitle = document.querySelector('.popup__subtitle');
 
 const createCardElement = (cardData) => {
     const cardTemplate = document.querySelector('.card-template').content;
@@ -82,9 +86,9 @@ const createCardElement = (cardData) => {
     cardLikeButton.addEventListener('click', () => {cardLikeButton.classList.toggle('card__like_active')});
     // открытие увеличенного изображения
     cardImage.addEventListener('click', (event) => {
-        popupImage.src = event.target.src;
-        popupImage.alt = event.target.alt;
-        popupSubtitle.textContent = event.target.alt;
+        popupZoomImage.src = event.target.src;
+        popupZoomImage.alt = event.target.alt;
+        popupZoomSubtitle.textContent = event.target.alt;
         openPopup(photoZoomPopup);
     });
     return card;
@@ -99,11 +103,8 @@ const renderCard = (cardData, container) => {
 // рендерим изначальные карточки
 initialCards.forEach(cardData => {renderCard(cardData, cards)});
 
-const cardNameInput = document.querySelector('.popup__input_type_card-name');
-const cardLinkInput = document.querySelector('.popup__input_type_card-link');
-const formAddElement = document.querySelector('.popup__add-form');
-
-function formAddSubmitHandler (evt) {
+// функция, дающая пользователю возможность добавлять карточки
+function handleFormAddSubmit (evt) {
     evt.preventDefault(); // отменяем дефолтное событие
     const cardData = {
         name: cardNameInput.value,
@@ -114,5 +115,5 @@ function formAddSubmitHandler (evt) {
     closePopup(cardAddPopup);
 };
 
-
-formAddElement.addEventListener('submit', formAddSubmitHandler); 
+// слушатель на форму добавления
+formAddPhoto.addEventListener('submit', handleFormAddSubmit); 
