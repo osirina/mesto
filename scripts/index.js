@@ -50,14 +50,6 @@ closeButtons.forEach((button) => {
   button.addEventListener('click', () => closePopup(popup));
 });
 
-
-// слушатель кнопки закрытия попапа редактирования
-//closeEditPopupButton.addEventListener('click', () => {closePopup(profileEditPopup);});
-// слушатель кнопки закрытия попапа добавления карточки
-//closeAddPopupButton.addEventListener('click', () => {closePopup(cardAddPopup);});
-// слушатель кнопки закрытия попапа увеличения фото
-//closeZoomPopupButton.addEventListener('click', () => {closePopup(photoZoomPopup);});
-
 // открытие попапа редактирования + подстановка данных профиля в форму при открытии попапа редактирования
 profileEditButton.addEventListener('click', () => {
     nameInput.value = profileName.textContent;
