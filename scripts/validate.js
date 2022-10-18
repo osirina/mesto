@@ -2,8 +2,8 @@ const formSelectors = {
     formSelector: '.popup__form',
     inputSelector: '.popup__input',
     submitButtonSelector: '.popup__save-button',
-    inactiveButtonClass: '.popup__save-button_disabled',
-    inputErrorClass: '.popup__input_type_error' // модификатор для инпутов при возникновении ошибки
+    inactiveButtonClass: 'popup__save-button_disabled',
+    inputErrorClass: 'popup__input_type_error' // модификатор для инпутов при возникновении ошибки
 }; //перенести в общий файл потом
 
 const enableValidation = ({formSelectors, ...settings}) => {
