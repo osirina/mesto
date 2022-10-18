@@ -35,11 +35,15 @@ const cardsList = document.querySelector('.cards__list'); //контейнер, 
 //функция открытия попапов
 const openPopup = function(popup) {
     popup.classList.add('popup_opened');
+    window.addEventListener('mousedown', closePopupByClick); // слушатель для закрытия попапа кликом на оверлей
+    document.addEventListener('keydown', closePopupByEsc); // слушатель для закрытия попапа esc
 };
 
 //функция закрытия попапов
 const closePopup = function(popup) {
     popup.classList.remove('popup_opened');
+    window.removeEventListener('mousedown', closePopupByClick); // удаляем слушатель для закрытия попапа кликом на оверлей
+    document.removeEventListener('keydown', closePopupByEsc); // удаляем слушатель для закрытия попапа esc
 };
 
 // закрытие попапов
@@ -118,3 +122,18 @@ function handleFormAddSubmit (evt) {
 
 // слушатель на форму добавления
 formAddPhoto.addEventListener('submit', handleFormAddSubmit); 
+
+// закрытие попапа кликом на оверлей
+const closePopupByClick = (evt) => {
+    if(evt.target.classList.contains('popup') || evt.target.classList.contains('popup__close')) {
+        closePopup(evt.target);
+    };
+};
+
+// закрытие попапа esc
+const closePopupByEsc = (evt) => {
+    if (evt.key === "Escape") {
+      const activePopup = document.querySelector('.popup_opened');
+      closePopup(activePopup);
+    };
+};
