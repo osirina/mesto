@@ -6,6 +6,8 @@ const formSelectors = {
     inputErrorClass: 'popup__input_type_error' // модификатор для инпутов при возникновении ошибки
 }; //перенести в общий файл потом
 
+
+// валидация форм
 const enableValidation = ({formSelectors, ...settings}) => {
     const formList = Array.from(document.forms);
     formList.forEach((formElement) => {
@@ -25,6 +27,7 @@ const setEventListeners = (formElement, {inputSelector, submitButtonSelector, ..
     });
 };
 
+// проверяем валидность одного инпута
 const isValid = (formElement, inputElement, {...settings}) => {
     if (!inputElement.validity.valid) {
         showInputError(formElement, inputElement, inputElement.validationMessage, settings);
@@ -33,6 +36,7 @@ const isValid = (formElement, inputElement, {...settings}) => {
       };
 };
 
+// переключение стиля кнопки в зависимости от валидности всех инпутов формы
 const toggleButtonState = (inputList, buttonElement, {inactiveButtonClass}) => {
     if (hasInvalidInput(inputList)) {
         disableButton(buttonElement, inactiveButtonClass)
@@ -42,23 +46,27 @@ const toggleButtonState = (inputList, buttonElement, {inactiveButtonClass}) => {
       };
 };
 
+// дизейбл кнопки
 const disableButton = (buttonElement, inactiveButtonClass) => {
     buttonElement.classList.add(inactiveButtonClass);
     buttonElement.disabled = true;
 };
 
+// проверка валидности всей формы
 const hasInvalidInput = (inputList) => {
     return inputList.some((inputElement) => {
         return !inputElement.validity.valid;
     });
 };
 
+// показ ошибки инпута
 const showInputError = (formElement, inputElement, errorMessage, {inputErrorClass}) => {
     const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
     inputElement.classList.add(inputErrorClass);
     errorElement.textContent = errorMessage;
 };
 
+// скрытие ошибки инпута
 const hideInputError = (formElement, inputElement, {inputErrorClass}) => {
     const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
     inputElement.classList.remove(inputErrorClass);

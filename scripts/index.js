@@ -118,7 +118,10 @@ function handleFormAddSubmit (evt) {
     renderCard(cardData, cardsList);
     closePopup(cardAddPopup);
     evt.target.reset(); // сброс значения инпутов
-    disableButton(buttonElement, inactiveButtonClass); // здесь надо деактивировать кнопку
+    // деактивируем кнопку для предотвращения добавления пустой карточки при повторном открытии формы
+    const currentButton = cardAddPopup.querySelector(formSelectors.submitButtonSelector);
+    const {inactiveButtonClass} = formSelectors;
+    disableButton(currentButton, inactiveButtonClass); 
 };
 
 // слушатель на форму добавления
