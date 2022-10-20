@@ -118,6 +118,7 @@ function handleFormAddSubmit (evt) {
     renderCard(cardData, cardsList);
     closePopup(cardAddPopup);
     evt.target.reset(); // сброс значения инпутов
+    disableButton(buttonElement, inactiveButtonClass); // здесь надо деактивировать кнопку
 };
 
 // слушатель на форму добавления
