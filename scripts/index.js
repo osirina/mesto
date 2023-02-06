@@ -1,6 +1,7 @@
 import Card from './Card.js';
 import { initialCards } from './initial-cards.js'
 const content = document.querySelector('.page__content');
+import { FormValidator } from './FormValidator.js';
 
 // попапы
 const profileEditPopup = document.querySelector('.popup_type_edit-profile');
@@ -87,16 +88,21 @@ function handleOpenZoomPopup (name, link) {
 }
 
 
+// функция создания карточки
+function generateCard (cardData) {
+    const card = new Card(cardData, '.card-template', handleOpenZoomPopup);
+    return card.generateCard();
+}
+
+// функция добавления карточки в ДОМ
+function addCard (newCard) {
+    cardsList.prepend(newCard);
+}
+
+// добавляем изначальные карточки из массива
 initialCards.forEach( cardData => {
-    const card = new Card(cardData, '.card-template');
-    const cardElement = card.generateCard();
-  
-    // Добавляем в DOM
-    cardsList.prepend(cardElement); // проверить метод аппенд
+    addCard(generateCard(cardData));
 });
-
-
-
 
 // функция, дающая пользователю возможность добавлять карточки
 function handleFormAddSubmit (evt) {
@@ -106,16 +112,11 @@ function handleFormAddSubmit (evt) {
       name: cardNameInput.value,
       link: cardLinkInput.value
     };
-    const card = new Card(cardData, '.card-template');
-    const cardElement = card.generateCard();
-    // Добавляем в DOM
-    cardsList.prepend(cardElement);
+    addCard(generateCard(cardData));
     closePopup(cardAddPopup);
     evt.target.reset(); // сброс значения инпутов
     // деактивируем кнопку для предотвращения добавления пустой карточки при повторном открытии формы
-    const currentButton = cardAddPopup.querySelector(formSelectors.submitButtonSelector);
-    const {inactiveButtonClass} = formSelectors;
-    disableButton(currentButton, inactiveButtonClass); 
+    formAddPhotoValidation.disableButton();
 };
 
 // слушатель на форму добавления
@@ -135,3 +136,19 @@ const closePopupByEsc = (evt) => {
       closePopup(activePopup);
     };
 };
+
+const formSelectors = {
+    formSelector: '.popup__form',
+    inputSelector: '.popup__input',
+    submitButtonSelector: '.popup__save-button',
+    inactiveButtonClass: 'popup__save-button_disabled',
+    inputErrorClass: 'popup__input_type_error' // модификатор для инпутов при возникновении ошибки
+};
+
+// валидация формы редактирования профиля
+const formProfileEditValidation = new FormValidator(formSelectors, formProfileEdit);
+formProfileEditValidation.enableValidation();
+
+// валидация формы добавления карточки
+const formAddPhotoValidation = new FormValidator(formSelectors, formAddPhoto);
+formAddPhotoValidation.enableValidation();

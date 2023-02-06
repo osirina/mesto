@@ -38,7 +38,7 @@ export default class Card {
         this._cardLikeButton.addEventListener('click', () => { this._handleCardLike()});
 
         // просмотр увеличенного изображения
-        this._cardImage.addEventListener('click', () => { this._handleImageZoom(this._cardData.name, this._cardData.link); });
+        this._cardImage.addEventListener('click', () => { this._handleOpenZoomPopup(this._cardData.name, this._cardData.link); });
     }
 
     // функция проставления лайка
@@ -50,10 +50,4 @@ export default class Card {
     _handleCardDelete() {
         this._card.remove();
     };
-
-    // функция просмотра увеличенного фото
-    _handleImageZoom() {
-        this._handleOpenZoomPopup( {name: this._cardData.name, link: this._cardData.link} );
-    }
-
 }
