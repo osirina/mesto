@@ -50,7 +50,8 @@ export class FormValidator {
     enableButton() {
         this._buttonElement.classList.remove(this._inactiveButtonClass);
         this._buttonElement.disabled = false;
-    }
+    };
+
 
     // переключение стиля кнопки в зависимости от валидности всех инпутов формы
     _toggleButtonState() {

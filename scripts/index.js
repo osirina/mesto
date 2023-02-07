@@ -124,7 +124,7 @@ formAddPhoto.addEventListener('submit', handleFormAddSubmit);
 
 // закрытие попапа кликом на оверлей
 const closePopupByClick = (evt) => {
-    if(evt.target.classList.contains('popup') || evt.target.classList.contains('popup__close')) {
+    if(evt.target.classList.contains('popup')) {
         closePopup(evt.target);
     };
 };
