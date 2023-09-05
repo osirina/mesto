@@ -1,8 +1,8 @@
 export default class Card {
-    constructor(cardData, templateSelector, handleOpenZoomPopup) {
+    constructor( cardData, templateSelector, handleCardClick) {
         this._cardData = cardData;
         this._templateSelector = templateSelector;
-        this._handleOpenZoomPopup = handleOpenZoomPopup;
+        this._handleCardClick = handleCardClick;
     };
 
     // получить шаблон карточки
@@ -38,7 +38,7 @@ export default class Card {
         this._cardLikeButton.addEventListener('click', () => { this._handleCardLike()});
 
         // просмотр увеличенного изображения
-        this._cardImage.addEventListener('click', () => { this._handleOpenZoomPopup(this._cardData.name, this._cardData.link); });
+        this._cardImage.addEventListener('click', () => { this._handleCardClick(this._cardData.name, this._cardData.link); });
     }
 
     // функция проставления лайка
