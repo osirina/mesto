@@ -53,10 +53,12 @@ const cardList = new Section({
 
 cardList.renderItems();
 
-function handleAddFormSubmit () {
+function handleAddFormSubmit (_getInputValues) {
   const cardData = {
-    name: cardNameInput.value,
-    link: cardLinkInput.value
+    name: _getInputValues.popupCardName,
+    link: _getInputValues.popupCardLink
+    //name: cardNameInput.value,
+    //link: cardLinkInput.value
   };
   cardList.addItem(createCard(cardData));
   popupAddPlace.close();
@@ -74,10 +76,11 @@ cardAddButton.addEventListener('click', () => {
   popupAddPlace.open();
 });
 
-function handleSubmitEditForm() {
+function handleSubmitEditForm(_getInputValues) {
+  console.log(_getInputValues);
   userInfo.setUserInfo({
-    name: nameInput.value,
-    job: jobInput.value
+    name: _getInputValues.popupName,
+    job: _getInputValues.popupJob
   });
   userInfoEditPopup.close();
   formProfileEditValidation.disableButton();
